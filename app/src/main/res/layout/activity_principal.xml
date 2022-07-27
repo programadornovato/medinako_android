@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Principal">
+
+    <TextView
+        android:id="@+id/tvTitulo"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:background="@color/purple_500"
+        android:gravity="center"
+        android:text="INICIO"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnInicio"
+        />
+
+    <TableRow
+        android:id="@+id/btnInicio"
+        android:layout_width="0dp"
+        android:layout_height="50sp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/icon_inicio"
+        app:subtitleTextColor="#FFFFFF"
+        app:title="Medinako"
+        app:titleTextColor="#FFFFFF">
+
+        <Button
+            android:id="@+id/btnMenuInicio"
+            android:layout_width="68dp"
+            android:layout_height="match_parent"
+            app:icon="@drawable/icon_inicio"
+            />
+
+        <Button
+            android:id="@+id/btnMenuEntrenar"
+            android:layout_width="68dp"
+            android:layout_height="match_parent"
+            android:onClick="clickIrEntrenar"
+            app:icon="@drawable/icon_entrenar"
+            app:iconTint="@color/purple_200"
+            />
+
+        <Button
+            android:id="@+id/btnMenuConfig"
+            android:layout_width="68dp"
+            android:layout_height="match_parent"
+            android:onClick="clickIrConfig"
+            app:icon="@drawable/icon_config"
+            app:iconTint="@color/purple_200"
+            />
+        <Button
+            android:id="@+id/btnDetalles"
+            android:layout_width="68dp"
+            android:layout_height="match_parent"
+            android:onClick="clickDetalles"
+            app:icon="@drawable/ic_medidor"
+            app:iconTint="@color/purple_200"
+            />
+
+
+    </TableRow>
+
+    <!-- Add CalendarView to display the Calendar -->
+
+    <Button
+        android:id="@+id/btnRecargar"
+        android:layout_width="164dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:onClick="clickRecargar"
+        android:text="Recargar"
+        app:icon="@android:drawable/ic_popup_sync"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitulo" />
+
+    <Button
+        android:id="@+id/btnTomarMedida"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="16dp"
+        android:onClick="clickTomarMedida"
+        android:text="Tomar medida"
+        app:icon="@drawable/ic_baseline_rule_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitulo" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="347dp"
+        android:layout_height="204dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etDia">
+
+        <TableLayout
+            android:id="@+id/tlListaResultados"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </TableLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/etDia"
+        android:layout_width="307dp"
+        android:layout_height="46dp"
+        android:layout_margin="8dp"
+        android:layout_marginTop="10dp"
+        android:gravity="right"
+        android:hint="Seleccione un dia"
+        android:onClick="clickVerCalendario"
+        android:padding="8dp"
+        android:textAlignment="gravity"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRecargar" />
+
+    <CalendarView
+        android:id="@+id/calDia"
+        android:layout_width="331dp"
+        android:layout_height="309dp"
+        android:layout_below="@id/etDia"
+        android:background="@color/white"
+        android:translationZ="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnInicio" />
+
+    <Button
+        android:id="@+id/btnVerCalendario"
+        android:layout_width="65dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:onClick="clickVerCalendario"
+        app:icon="@drawable/icon_calendario"
+        app:layout_constraintStart_toEndOf="@+id/etDia"
+        app:layout_constraintTop_toBottomOf="@+id/btnRecargar"
+        />
+
+    <TextView
+        android:id="@+id/tvRes"
+        android:layout_width="385dp"
+        android:layout_height="98dp"
+        android:layout_marginTop="28dp"
+        android:gravity="start|center_horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+
+    <LinearLayout
+        android:id="@+id/precargador"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/spinner_item_progress_bar_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:paddingLeft="8dp"
+            android:text="Cargando..."
+            android:textSize="16sp" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

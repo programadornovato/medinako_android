@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CrearMedidor">
+
+    <TableRow
+        android:id="@+id/toolbar2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:subtitleTextColor="#fff"
+        app:title="Configuracion"
+        app:titleTextColor="#fff">
+
+        <Button
+            android:id="@+id/btnMenuInicio"
+            android:layout_width="68dp"
+            android:layout_height="match_parent"
+            android:onClick="clickIrPrincipal"
+            app:icon="@drawable/icon_inicio"
+            app:iconTint="@color/purple_200" />
+
+        <Button
+            android:id="@+id/btnMenuEntrenar"
+            android:layout_width="68dp"
+            android:layout_height="match_parent"
+            android:onClick="clickIrEntrenar"
+            app:icon="@drawable/icon_entrenar"
+            app:iconTint="@color/purple_200" />
+
+        <Button
+            android:id="@+id/btnMenuConfig"
+            android:layout_width="68dp"
+            android:layout_height="match_parent"
+            app:icon="@drawable/icon_config" />
+        <Button
+            android:id="@+id/btnDetalles"
+            android:layout_width="68dp"
+            android:layout_height="match_parent"
+            android:onClick="clickDetalles"
+            app:icon="@drawable/ic_medidor"
+            app:iconTint="@color/purple_200"
+            />
+
+
+    </TableRow>
+
+    <TextView
+        android:id="@+id/tvTitulo"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:background="@color/purple_500"
+        android:gravity="center"
+        android:text="CONFIGURACION"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+
+
+    <ScrollView
+        android:id="@+id/scListaRedes"
+        android:layout_width="323dp"
+        android:layout_height="194dp"
+        android:layout_marginTop="12dp"
+        android:layout_weight="1"
+        android:fadeScrollbars="false"
+
+        android:keepScreenOn="true"
+        android:overScrollMode="always"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarStyle="outsideInset"
+        android:scrollbars="none"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imgRedesWifi">
+
+        <TableLayout
+            android:id="@+id/tlListaRedes"
+            android:layout_width="350dp"
+            android:layout_height="170dp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="10.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnCargarRedes">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </TableLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnCargarRedes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="#4CAF50"
+        android:onClick="clickCargarRedes"
+        android:text="Listo"
+        android:visibility="invisible"
+        app:backgroundTint="#4CAF50"
+        app:icon="@android:drawable/ic_media_play"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBuscarRedMedidor" />
+
+    <VideoView
+        android:id="@+id/imgRedesWifi"
+        android:layout_width="351dp"
+        android:layout_height="454dp"
+        android:layout_marginTop="15dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvIndicacion"
+        app:srcCompat="@drawable/captura"
+        tools:srcCompat="@drawable/captura" />
+
+    <RelativeLayout
+        android:id="@+id/rlContenedorPass"
+        android:layout_width="329dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="28dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scListaRedes">
+
+        <EditText
+            android:id="@+id/etPasswordWifi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:text="totalDraLove420207"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/show_pass_btn"
+            android:layout_width="83dp"
+            android:layout_height="45dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginRight="16dp"
+            android:layout_toEndOf="@+id/etPasswordWifi"
+            android:layout_toRightOf="@+id/etPasswordWifi"
+            android:alpha=".5"
+            android:onClick="ShowHidePass"
+            app:srcCompat="@android:drawable/ic_menu_view"
+            tools:srcCompat="@android:drawable/ic_menu_view" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnGuadarWifi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="clickGuadarWifi"
+        android:text="Guardar datos"
+        android:visibility="invisible"
+        app:icon="@drawable/icon_guardar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rlContenedorPass" />
+
+    <Button
+        android:id="@+id/btnBorrarMedidor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#8E0000"
+        android:onClick="clickBorrarMedidor"
+        android:text="Resetear Medidor"
+        android:visibility="invisible"
+        app:backgroundTint="#8E0000"
+        app:icon="@drawable/icon_basura"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnBuscarRedMedidor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:onClick="clickBuscarRedMedidor"
+        android:text="Buscar Wifi Medidor"
+        android:visibility="invisible"
+        app:icon="@drawable/icon_wifi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgRedesWifi" />
+
+    <Button
+        android:id="@+id/btnIrTomarMedidas"
+        android:layout_width="250dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="8dp"
+        android:onClick="clickReresar"
+        android:text="Ir a tomar medidas"
+        android:visibility="invisible"
+        app:icon="@drawable/icon_inicio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnGuadarWifi" />
+
+    <TextView
+        android:id="@+id/tvIndicacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#FFEB3B"
+        android:text="Seleccione la red WiFi Medidor"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitulo" />
+
+    <LinearLayout
+        android:id="@+id/precargador"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/spinner_item_progress_bar_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:paddingLeft="8dp"
+            android:text="Cargando..."
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
