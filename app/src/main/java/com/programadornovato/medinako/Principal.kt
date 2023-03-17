@@ -56,7 +56,7 @@ class Principal : AppCompatActivity() {
         else{
             //Leemos la mac del medidor para guardar su medicion
             var queue = Volley.newRequestQueue(this)
-            var url = "http://"+configuracion.ipServidor+"/medinako/listaMediciones.php"
+            var url = "http://"+configuracion.ipServidor+":5000/lista-mediciones"
             var stringObjectRequest = StringRequest(Request.Method.GET, url,
                 { responseHayInternet ->
                     //Si hay conexion a internet cargamos las tablas
@@ -102,7 +102,7 @@ class Principal : AppCompatActivity() {
     fun validaSiRedInternetEstaConectado(){
         var configuracion=Configuracion()
         var queue = Volley.newRequestQueue(this)
-        var url="http://"+configuracion.ipServidor+"/medinako/listaMediciones.php"
+        var url="http://"+configuracion.ipServidor+":5000/lista-mediciones"
         var stringObjectRequest = StringRequest(
             Request.Method.GET, url,
             { response ->
@@ -144,8 +144,8 @@ class Principal : AppCompatActivity() {
             return
         }
         var queueListaMediciones=Volley.newRequestQueue(this)
-        var url="http://"+configuracion.ipServidor+"/medinako/listaMediciones.php?idDispositivo=$mac&fecha=$fecha"
-        //var url="http://"+configuracion.ipServidor+":5000/lista-mediciones?mac=$mac"
+        //var url="http://"+configuracion.ipServidor+"/medinako/listaMediciones.php?idDispositivo=$mac&fecha=$fecha"
+        var url="http://"+configuracion.ipServidor+":5000/lista-mediciones?mac=$mac&fecha=$fecha"
         var jsonObjectRequest=JsonObjectRequest(Request.Method.GET,url,null,
             { responseMediciones ->
                 precargador?.visibility = View.INVISIBLE

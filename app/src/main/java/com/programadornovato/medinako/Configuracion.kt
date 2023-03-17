@@ -1,7 +1,7 @@
 package com.programadornovato.medinako
 
 class Configuracion {
-    var localOremoto: String = "remoto"
+    var localOremoto: String = "local"
     var ipServidor=""
     init {
         if(localOremoto == "local")
