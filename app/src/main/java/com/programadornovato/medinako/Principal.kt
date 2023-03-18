@@ -44,7 +44,7 @@ class Principal : AppCompatActivity() {
         //LLAMAOS LOS DATOS DE SHARED PREFERENCE
         val mGetSharedPreferences = getSharedPreferences("medinako", Context.MODE_PRIVATE)
         //OBTENEMOS LA IP DEL SEL SERVIDOR A DONDE SE ENVIARA EL AUDIO
-        val shareIpServidor = mGetSharedPreferences.getString("ipServidor", null)
+        val shareIpServidor = mGetSharedPreferences.getString("ipServidor", "")
         if( shareIpServidor?.length!! > 0 ){
             configuracion.ipServidor= shareIpServidor.toString()
         }
