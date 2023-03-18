@@ -18,12 +18,15 @@
         android:theme="@style/Theme.AndroidMysql"
         android:usesCleartextTraffic="true">
         <activity
-            android:name="com.programadornovato.medinako.CrearMedidor"
+            android:name=".ConfiguracionServidor"
             android:exported="false" />
         <activity
-            android:name="com.programadornovato.medinako.Entrenar"
+            android:name=".CrearMedidor"
             android:exported="false" />
-        <activity android:name="com.programadornovato.medinako.Principal">
+        <activity
+            android:name=".Entrenar"
+            android:exported="false" />
+        <activity android:name=".Principal">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

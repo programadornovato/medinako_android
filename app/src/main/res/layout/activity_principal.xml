@@ -68,6 +68,14 @@
             app:iconTint="@color/purple_200"
             />
 
+        <Button
+            android:id="@+id/btnConfServ"
+            android:layout_width="68dp"
+            android:layout_height="match_parent"
+            android:onClick="clickConfigServ"
+            app:icon="@drawable/ic_baseline_broadcast_on_home_24"
+            app:iconTint="@color/purple_200" />
+
 
     </TableRow>
 

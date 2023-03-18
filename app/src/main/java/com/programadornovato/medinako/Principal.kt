@@ -41,6 +41,14 @@ class Principal : AppCompatActivity() {
         calDia = findViewById(R.id.calDia)
         calDia.visibility = View.GONE
         val configuracion=Configuracion()
+        //LLAMAOS LOS DATOS DE SHARED PREFERENCE
+        val mGetSharedPreferences = getSharedPreferences("medinako", Context.MODE_PRIVATE)
+        //OBTENEMOS LA IP DEL SEL SERVIDOR A DONDE SE ENVIARA EL AUDIO
+        val shareIpServidor = mGetSharedPreferences.getString("ipServidor", null)
+        if( shareIpServidor?.length!! > 0 ){
+            configuracion.ipServidor= shareIpServidor.toString()
+        }
+
         //Si estamos conectados al wifi medidor preguntamos si queremos conectarnos a una red wifi especifica
         validaSiRedMedidorEstaConectado()
         //Si estamos conectados al wifi internet
@@ -291,6 +299,7 @@ class Principal : AppCompatActivity() {
         //Cerrar esta actividad
         finish()
     }
+
     fun clickDetalles(view: View){
         precargador?.visibility = View.VISIBLE
         var queueEnciende = Volley.newRequestQueue(this)
@@ -319,6 +328,13 @@ class Principal : AppCompatActivity() {
                 precargador?.visibility = View.INVISIBLE
             })
         queueEnciende.add(stringRequestDetalles)
+    }
+    fun clickConfigServ(view: View){
+        //Abrir la actividad principal
+        var intent = Intent(this, ConfiguracionServidor::class.java)
+        startActivity(intent)
+        //Cerrar esta actividad
+        finish()
     }
     fun clickIrEntrenar(view: View){
         //Abrir la actividad principal
